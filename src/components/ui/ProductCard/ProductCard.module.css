@@ -33,6 +33,23 @@
     gap: 0.5rem;
 }
 
+.editButton {
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+}
+
+.editButton:hover {
+    background-color: #eff6ff;
+}
+
 .likeButton {
     padding: 0.25rem;
     border-radius: 0.25rem;
@@ -136,7 +153,6 @@
     font-size: 0.875rem;
     margin-left: 0.25rem;
 }
-
 
 @media (max-width: 640px) {
     .card {

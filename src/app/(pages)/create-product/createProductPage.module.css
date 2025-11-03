@@ -1,0 +1,53 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    min-height: calc(100vh - 4rem);
+}
+
+.header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 1rem;
+}
+
+.title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 1.125rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    .title {
+        color: #f9fafb;
+    }
+
+    .subtitle {
+        color: #d1d5db;
+    }
+
+    .header {
+        border-bottom-color: #374151;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .page {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.75rem;
+    }
+}

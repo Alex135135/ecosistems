@@ -1,0 +1,83 @@
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    text-align: center;
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.125rem;
+    color: #6b7280;
+}
+
+.error {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.125rem;
+    color: #ef4444;
+}
+
+.empty {
+    text-align: center;
+    padding: 3rem;
+    color: #6b7280;
+    font-size: 1.125rem;
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    .title {
+        color: #f9fafb;
+    }
+
+    .loading,
+    .empty {
+        color: #d1d5db;
+    }
+}
+
+/* Адаптивность */
+@media (min-width: 768px) {
+    .productsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .productsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .productsGrid {
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+}

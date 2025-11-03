@@ -1,52 +1,93 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from './page.module.css';
 
 export default function Home() {
+
+  const phoneContacts = [
+    {
+      label: "Customer Service",
+      number: "+1 (800) 555-1234",
+      hours: "Mon-Fri 9AM-6PM EST"
+    },
+    {
+      label: "Technical Support",
+      number: "+1 (800) 555-5678",
+      hours: "24/7"
+    },
+    {
+      label: "Sales Department",
+      number: "+1 (800) 555-9012",
+      hours: "Mon-Sat 8AM-8PM EST"
+    }
+  ]
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <div className={styles.container}>
+      <main className={styles.main}>
         <Image
-          className="dark:invert"
+          className={styles.logo}
           src="/next.svg"
           alt="Next.js logo"
           width={100}
           height={20}
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            Welcome to E-commerce App
+        <div className={styles.content}>
+          <h1 className={styles.title}>
+            Добро пожаловать в интернет-магазин
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Discover amazing products and manage your favorites. Browse our collection or add new products to the catalog.
+          <p className={styles.description}>
+            Открывайте для себя удивительные товары и выбирайте то, что вам нравится больше всего. Просмотрите нашу коллекцию или добавьте новые товары в каталог.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+        <div className={styles.actions}>
           <Link
             href="/products"
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
+            className={styles.primaryButton}
           >
             <Image
-              className="dark:invert"
+              className={styles.buttonLogo}
               src="/next.svg"
               alt="Products"
               width={16}
               height={16}
             />
-            Browse Products
+            Просмотр продуктов
           </Link>
           <Link
             href="/create-product"
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
+            className={styles.secondaryButton}
           >
-            Create Product
+            Создать продукт
           </Link>
         </div>
-        <div className="mt-8 text-center sm:text-left">
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
-            This is a demo e-commerce application built with Next.js, Redux Toolkit, and Tailwind CSS.
-          </p>
-        </div>
+
+        <footer className={styles.footer}>
+          <div className={styles.contactsSection}>
+            <h3 className={styles.contactsTitle}>Contact Information</h3>
+            <div className={styles.contactsGrid}>
+              {phoneContacts.map((contact, index) => (
+                <div key={index} className={styles.contactItem}>
+                  <div className={styles.contactHeader}>
+                    <span className={styles.contactLabel}>{contact.label}</span>
+                    <a
+                      href={`tel:${contact.number.replace(/\D/g, '')}`}
+                      className={styles.contactNumber}
+                    >
+                      {contact.number}
+                    </a>
+                  </div>
+                  <span className={styles.contactHours}>{contact.hours}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={styles.footerBottom}>
+            <p className={styles.footerText}>
+              Наш интернет магазин работает с 2020 года.
+            </p>
+          </div>
+        </footer>
       </main>
     </div>
   );

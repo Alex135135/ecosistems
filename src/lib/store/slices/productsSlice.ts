@@ -6,6 +6,9 @@ interface ProductsState {
     loading: boolean
     error: string | null
     filter: 'all' | 'favorites'
+    searchTerm: string
+    currentPage: number
+    itemsPerPage: number
 }
 
 const initialState: ProductsState = {
@@ -13,6 +16,9 @@ const initialState: ProductsState = {
     loading: false,
     error: null,
     filter: 'all',
+    searchTerm: '',
+    currentPage: 1,
+    itemsPerPage: 6
 }
 
 export const fetchProducts = createAsyncThunk(
@@ -28,6 +34,18 @@ const productsSlice = createSlice({
     reducers: {
         setFilter: (state, action: PayloadAction<'all' | 'favorites'>) => {
             state.filter = action.payload
+            state.currentPage = 1
+        },
+        setSearchTerm: (state, action: PayloadAction<string>) => {
+            state.searchTerm = action.payload
+            state.currentPage = 1
+        },
+        setCurrentPage: (state, action: PayloadAction<number>) => {
+            state.currentPage = action.payload
+        },
+        setItemsPerPage: (state, action: PayloadAction<number>) => {
+            state.itemsPerPage = action.payload
+            state.currentPage = 1
         },
         toggleLike: (state, action: PayloadAction<string>) => {
             const product = state.items.find(item => item.id === action.payload)
@@ -39,20 +57,38 @@ const productsSlice = createSlice({
                 )
             }
         },
-
         deleteProduct: (state, action: PayloadAction<string>) => {
             state.items = state.items.filter(item => item.id !== action.payload)
-        },
 
+            const totalFilteredItems = getFilteredItems(state).length
+            const totalPages = Math.ceil(totalFilteredItems / state.itemsPerPage)
+            if (state.currentPage > totalPages && totalPages > 0) {
+                state.currentPage = totalPages
+            }
+        },
         addProduct: (state, action: PayloadAction<Product>) => {
             state.items.push(action.payload)
         },
-
         updateProduct: (state, action: PayloadAction<Partial<Product> & { id: string }>) => {
             const product = state.items.find(item => item.id === action.payload.id)
             if (product) {
                 Object.assign(product, action.payload)
             }
+        },
+        editProduct: (state, action: PayloadAction<Partial<Product> & { id: string }>) => {
+            const index = state.items.findIndex(item => item.id === action.payload.id)
+            if (index !== -1) {
+                state.items[index] = { ...state.items[index], ...action.payload }
+            }
+        },
+        clearSearch: (state) => {
+            state.searchTerm = ''
+            state.currentPage = 1
+        },
+        resetFilters: (state) => {
+            state.filter = 'all'
+            state.searchTerm = ''
+            state.currentPage = 1
         }
     },
     extraReducers: (builder) => {
@@ -72,12 +108,62 @@ const productsSlice = createSlice({
     },
 })
 
+export const getFilteredItems = (state: ProductsState) => {
+    let filtered = state.items
+
+
+    if (state.filter === 'favorites') {
+        filtered = filtered.filter(product => product.isLiked)
+    }
+
+    if (state.searchTerm.trim()) {
+        const searchLower = state.searchTerm.toLowerCase()
+        filtered = filtered.filter(product =>
+            product.title.toLowerCase().includes(searchLower) ||
+            product.description.toLowerCase().includes(searchLower) ||
+            product.category.toLowerCase().includes(searchLower)
+        )
+    }
+
+    return filtered
+}
+
+
+export const getPaginatedItems = (state: ProductsState) => {
+    const filteredItems = getFilteredItems(state)
+    const startIndex = (state.currentPage - 1) * state.itemsPerPage
+    const endIndex = startIndex + state.itemsPerPage
+    return filteredItems.slice(startIndex, endIndex)
+}
+
+
+export const getPaginationInfo = (state: ProductsState) => {
+    const filteredItems = getFilteredItems(state)
+    const totalItems = filteredItems.length
+    const totalPages = Math.ceil(totalItems / state.itemsPerPage)
+
+    return {
+        totalItems,
+        totalPages,
+        hasNextPage: state.currentPage < totalPages,
+        hasPrevPage: state.currentPage > 1,
+        currentPage: state.currentPage,
+        itemsPerPage: state.itemsPerPage
+    }
+}
+
 export const {
     setFilter,
+    setSearchTerm,
+    setCurrentPage,
+    setItemsPerPage,
     toggleLike,
     deleteProduct,
     addProduct,
-    updateProduct
+    updateProduct,
+    editProduct,
+    clearSearch,
+    resetFilters
 } = productsSlice.actions
 
 export default productsSlice.reducer

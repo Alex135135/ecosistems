@@ -1,0 +1,112 @@
+.form {
+    max-width: 42rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary, #374151);
+}
+
+.input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color, #d1d5db);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: var(--input-bg, white);
+    color: var(--text-primary, #374151);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary-color, #3b82f6);
+    box-shadow: 0 0 0 3px var(--primary-color-light, rgba(59, 130, 246, 0.1));
+}
+
+.inputError {
+    border-color: var(--error-color, #ef4444);
+    box-shadow: 0 0 0 3px var(--error-color-light, rgba(239, 68, 68, 0.1));
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 6rem;
+    font-family: inherit;
+}
+
+.error {
+    color: var(--error-color, #ef4444);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+
+.button {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+
+.submitButton {
+    background-color: var(--primary-color, #3b82f6);
+    color: white;
+}
+
+.submitButton:hover {
+    background-color: var(--primary-color-dark, #2563eb);
+}
+
+.cancelButton {
+    background-color: var(--gray-color, #6b7280);
+    color: white;
+}
+
+.cancelButton:hover {
+    background-color: var(--gray-color-dark, #4b5563);
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-primary: #f3f4f6;
+        --border-color: #4b5563;
+        --input-bg: #374151;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .button {
+        width: 100%;
+    }
+}

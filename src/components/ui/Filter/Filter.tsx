@@ -2,26 +2,31 @@
 
 import { useAppDispatch, useAppSelector } from '@/lib/store'
 import { setFilter } from '@/lib/store/slices/productsSlice'
+import styles from './Filter.module.css'
 
 export default function Filter() {
     const dispatch = useAppDispatch()
     const { filter } = useAppSelector((state: { products: any }) => state.products)
 
+    const getButtonClass = (buttonFilter: 'all' | 'favorites') => {
+        return filter === buttonFilter
+            ? `${styles.button} ${styles.buttonActive}`
+            : `${styles.button} ${styles.buttonInactive}`
+    }
+
     return (
-        <div className="flex gap-4 mb-6">
+        <div className={styles.container}>
             <button
                 onClick={() => dispatch(setFilter('all'))}
-                className={`px-4 py-2 rounded ${filter === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-200'
-                    }`}
+                className={getButtonClass('all')}
             >
-                All Products
+                Все товары
             </button>
             <button
                 onClick={() => dispatch(setFilter('favorites'))}
-                className={`px-4 py-2 rounded ${filter === 'favorites' ? 'bg-blue-500 text-white' : 'bg-gray-200'
-                    }`}
+                className={getButtonClass('favorites')}
             >
-                Favorites
+                Избранное
             </button>
         </div>
     )

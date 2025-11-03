@@ -51,7 +51,7 @@
 .image {
     width: 100%;
     height: var(--image-height);
-    object-fit: cover;
+    object-fit: contain;
     border-radius: var(--border-radius);
 }
 
@@ -120,19 +120,8 @@
     text-align: center;
 }
 
-/* Темная тема */
-@media (prefers-color-scheme: dark) {
-    .container {
-        --text-primary: #f9fafb;
-        --bg-secondary: #374151;
-        --text-secondary: #f3f4f6;
-        --text-muted: #d1d5db;
-        --primary-color: #60a5fa;
-        --primary-color-dark: #93c5fd;
-    }
-}
 
-/* Адаптивность */
+
 @media (min-width: 768px) {
     .grid {
         grid-template-columns: 1fr 1fr;

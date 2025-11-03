@@ -20,12 +20,12 @@ export default function ProductsPage() {
         dispatch(fetchProducts())
     }, [dispatch])
 
-    if (loading) return <div className={styles.loading}>Loading products...</div>
+    if (loading) return <div className={styles.loading}>Загрузка товаров...</div>
     if (error) return <div className={styles.error}>Error: {error}</div>
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Наши продукты</h1>
+            <h1 className={styles.title}>Наши товары</h1>
             <Search />
             <Filter />
 

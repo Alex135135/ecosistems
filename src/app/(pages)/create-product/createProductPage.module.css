@@ -27,20 +27,6 @@
 }
 
 
-@media (prefers-color-scheme: dark) {
-    .title {
-        color: #f9fafb;
-    }
-
-    .subtitle {
-        color: #d1d5db;
-    }
-
-    .header {
-        border-bottom-color: #374151;
-    }
-}
-
 
 @media (max-width: 768px) {
     .page {

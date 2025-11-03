@@ -19,7 +19,7 @@ export default function Search() {
         <div className={styles.container}>
             <input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Поиск товаров..."
                 value={search}
                 onChange={handleSearchChange}
                 className={styles.input}

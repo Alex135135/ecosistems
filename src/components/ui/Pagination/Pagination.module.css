@@ -65,21 +65,8 @@
     transform: translateY(1px);
 }
 
-/* Темная тема */
-@media (prefers-color-scheme: dark) {
-    .container {
-        --border-color: #4b5563;
-        --bg-primary: #374151;
-        --bg-secondary: #4b5563;
-        --bg-hover: #6b7280;
-        --text-primary: #f3f4f6;
-        --border-hover: #6b7280;
-        --primary-color: #2563eb;
-        --text-on-primary: #ffffff;
-    }
-}
 
-/* Адаптивность */
+
 @media (max-width: 640px) {
     .container {
         flex-wrap: wrap;

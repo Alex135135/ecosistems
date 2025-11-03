@@ -5,6 +5,8 @@ import { Heart, Trash2 } from 'lucide-react'
 import { useAppDispatch } from '@/lib/store'
 import { toggleLike, deleteProduct } from '@/lib/store/slices/productsSlice'
 import { Product } from '@/services/api/fakeStoreApi'
+import { useState } from 'react'
+import styles from './ProductCard.module.css'
 
 interface ProductCardProps {
     product: Product
@@ -13,6 +15,7 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
     const router = useRouter()
     const dispatch = useAppDispatch()
+    const [isLiked, setIsLiked] = useState(product.isLiked)
 
     const handleCardClick = () => {
         router.push(`/products/${product.id}`)
@@ -20,6 +23,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
     const handleLikeClick = (e: React.MouseEvent) => {
         e.stopPropagation()
+        setIsLiked(!isLiked)
         dispatch(toggleLike(product.id))
     }
 
@@ -33,25 +37,23 @@ export default function ProductCard({ product }: ProductCardProps) {
         : product.description
 
     return (
-        <div
-            className="border rounded-lg p-4 cursor-pointer hover:shadow-lg transition-shadow"
-            onClick={handleCardClick}
-        >
-            <div className="flex justify-between items-start mb-3">
-                <h3 className="font-semibold text-lg">{product.title}</h3>
-                <div className="flex gap-2">
+        <div className={styles.card} onClick={handleCardClick}>
+            <div className={styles.header}>
+                <h3 className={styles.title}>{product.title}</h3>
+                <div className={styles.actions}>
                     <button
                         onClick={handleLikeClick}
-                        className="p-1 hover:bg-gray-100 rounded"
+                        className={`${styles.likeButton} ${isLiked ? styles.likeButtonLiked : styles.likeButtonNotLiked
+                            }`}
                     >
                         <Heart
                             size={20}
-                            className={product.isLiked ? "fill-red-500 text-red-500" : "text-gray-400"}
+                            className={styles.heartIcon}
                         />
                     </button>
                     <button
                         onClick={handleDeleteClick}
-                        className="p-1 hover:bg-gray-100 rounded text-red-500"
+                        className={styles.deleteButton}
                     >
                         <Trash2 size={18} />
                     </button>
@@ -61,19 +63,19 @@ export default function ProductCard({ product }: ProductCardProps) {
             <img
                 src={product.image}
                 alt={product.title}
-                className="w-full h-48 object-cover rounded mb-3"
+                className={styles.image}
             />
 
-            <p className="text-gray-600 mb-2">{truncatedDescription}</p>
+            <p className={styles.description}>{truncatedDescription}</p>
 
-            <div className="flex justify-between items-center">
-                <span className="font-bold text-lg">${product.price}</span>
-                <span className="text-sm text-gray-500">{product.category}</span>
+            <div className={styles.footer}>
+                <span className={styles.price}>${product.price}</span>
+                <span className={styles.category}>{product.category}</span>
             </div>
 
-            <div className="flex items-center mt-2">
-                <span className="text-yellow-500">★ {product.rating.rate}</span>
-                <span className="text-gray-400 text-sm ml-1">({product.rating.count})</span>
+            <div className={styles.rating}>
+                <span className={styles.star}>★ {product.rating.rate}</span>
+                <span className={styles.reviewCount}>({product.rating.count} reviews)</span>
             </div>
         </div>
     )

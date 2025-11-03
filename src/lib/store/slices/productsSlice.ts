@@ -3,6 +3,7 @@ import { productsApi, type Product } from '@/services/api/fakeStoreApi'
 
 interface ProductsState {
     items: Product[]
+    userItems: Product[]
     loading: boolean
     error: string | null
     filter: 'all' | 'favorites'
@@ -13,6 +14,7 @@ interface ProductsState {
 
 const initialState: ProductsState = {
     items: [],
+    userItems: [],
     loading: false,
     error: null,
     filter: 'all',
@@ -48,17 +50,29 @@ const productsSlice = createSlice({
             state.currentPage = 1
         },
         toggleLike: (state, action: PayloadAction<string>) => {
-            const product = state.items.find(item => item.id === action.payload)
+
+            let product = state.userItems.find(item => item.id === action.payload)
             if (product) {
-                state.items = state.items.map(item =>
+                state.userItems = state.userItems.map(item =>
                     item.id === action.payload
                         ? { ...item, isLiked: !item.isLiked }
                         : item
                 )
+            } else {
+                product = state.items.find(item => item.id === action.payload)
+                if (product) {
+                    state.items = state.items.map(item =>
+                        item.id === action.payload
+                            ? { ...item, isLiked: !item.isLiked }
+                            : item
+                    )
+                }
             }
         },
         deleteProduct: (state, action: PayloadAction<string>) => {
+
             state.items = state.items.filter(item => item.id !== action.payload)
+            state.userItems = state.userItems.filter(item => item.id !== action.payload)
 
             const totalFilteredItems = getFilteredItems(state).length
             const totalPages = Math.ceil(totalFilteredItems / state.itemsPerPage)
@@ -67,18 +81,28 @@ const productsSlice = createSlice({
             }
         },
         addProduct: (state, action: PayloadAction<Product>) => {
-            state.items.push(action.payload)
+            state.userItems.push(action.payload)
         },
         updateProduct: (state, action: PayloadAction<Partial<Product> & { id: string }>) => {
-            const product = state.items.find(item => item.id === action.payload.id)
+            let product = state.userItems.find(item => item.id === action.payload.id)
             if (product) {
                 Object.assign(product, action.payload)
+            } else {
+                product = state.items.find(item => item.id === action.payload.id)
+                if (product) {
+                    Object.assign(product, action.payload)
+                }
             }
         },
         editProduct: (state, action: PayloadAction<Partial<Product> & { id: string }>) => {
-            const index = state.items.findIndex(item => item.id === action.payload.id)
+            let index = state.userItems.findIndex(item => item.id === action.payload.id)
             if (index !== -1) {
-                state.items[index] = { ...state.items[index], ...action.payload }
+                state.userItems[index] = { ...state.userItems[index], ...action.payload }
+            } else {
+                index = state.items.findIndex(item => item.id === action.payload.id)
+                if (index !== -1) {
+                    state.items[index] = { ...state.items[index], ...action.payload }
+                }
             }
         },
         clearSearch: (state) => {
@@ -109,8 +133,9 @@ const productsSlice = createSlice({
 })
 
 export const getFilteredItems = (state: ProductsState) => {
-    let filtered = state.items
+    const allItems = [...state.items, ...state.userItems]
 
+    let filtered = allItems
 
     if (state.filter === 'favorites') {
         filtered = filtered.filter(product => product.isLiked)
@@ -128,14 +153,12 @@ export const getFilteredItems = (state: ProductsState) => {
     return filtered
 }
 
-
 export const getPaginatedItems = (state: ProductsState) => {
     const filteredItems = getFilteredItems(state)
     const startIndex = (state.currentPage - 1) * state.itemsPerPage
     const endIndex = startIndex + state.itemsPerPage
     return filteredItems.slice(startIndex, endIndex)
 }
-
 
 export const getPaginationInfo = (state: ProductsState) => {
     const filteredItems = getFilteredItems(state)

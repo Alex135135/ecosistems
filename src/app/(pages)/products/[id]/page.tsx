@@ -32,7 +32,7 @@ export default function ProductDetailPage() {
                 href="/products"
                 className={styles.backLink}
             >
-                ← Вернуться к продуктам
+                ← Вернуться к товарам
             </Link>
 
             <div className={styles.grid}>

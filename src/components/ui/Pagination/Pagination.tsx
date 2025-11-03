@@ -22,7 +22,7 @@ export default function Pagination() {
                 disabled={!paginationInfo.hasPrevPage}
                 className={styles.navButton}
             >
-                Previous
+                Назад
             </button>
 
             <div className={styles.pages}>
@@ -43,7 +43,7 @@ export default function Pagination() {
                 disabled={!paginationInfo.hasNextPage}
                 className={styles.navButton}
             >
-                Next
+                Далее
             </button>
         </div>
     )

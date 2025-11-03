@@ -41,7 +41,6 @@
     font-size: 1.125rem;
 }
 
-/* Темная тема */
 @media (prefers-color-scheme: dark) {
     .title {
         color: #f9fafb;
@@ -53,7 +52,6 @@
     }
 }
 
-/* Адаптивность */
 @media (min-width: 768px) {
     .productsGrid {
         grid-template-columns: repeat(2, 1fr);

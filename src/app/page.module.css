@@ -45,16 +45,17 @@
 
 .actions {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     font-size: 1rem;
     font-weight: 500;
+    justify-content: center;
 }
 
 .primaryButton {
     display: flex;
     height: 3rem;
-    width: 100%;
+    width: auto;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
@@ -64,6 +65,7 @@
     color: var(--button-primary-text, #ffffff);
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
+    white-space: nowrap;
 }
 
 .primaryButton:hover {
@@ -73,7 +75,7 @@
 .secondaryButton {
     display: flex;
     height: 3rem;
-    width: 100%;
+    width: auto;
     align-items: center;
     justify-content: center;
     border-radius: 9999px;
@@ -82,6 +84,7 @@
     color: var(--button-secondary-text, #000000);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
+    white-space: nowrap;
 }
 
 .secondaryButton:hover {
@@ -99,13 +102,6 @@
     color: var(--text-tertiary, #71717a);
 }
 
-.logo {
-    filter: var(--logo-filter, none);
-}
-
-.buttonLogo {
-    filter: var(--logo-filter, none);
-}
 
 
 .footer {
@@ -135,14 +131,7 @@
     margin: 0 auto;
 }
 
-.contactItem {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background-color: var(--bg-tertiary, #f8fafc);
-    border-radius: 0.5rem;
-    border: 1px solid var(--border-color, #e5e7eb);
-}
+
 
 .contactHeader {
     display: flex;
@@ -190,20 +179,8 @@
     margin: 0;
 }
 
-/* Темная тема для футера */
-@media (prefers-color-scheme: dark) {
-    .footer {
-        --border-color: #374151;
-        --bg-tertiary: #1f2937;
-        --text-primary: #f9fafb;
-        --text-secondary: #d1d5db;
-        --text-tertiary: #9ca3af;
-        --primary-color: #60a5fa;
-        --primary-hover: #93c5fd;
-    }
-}
 
-/* Адаптивность для футера */
+
 @media (max-width: 768px) {
     .contactsGrid {
         max-width: 100%;
@@ -231,23 +208,6 @@
 
     .contactNumber {
         font-size: 0.875rem;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    .container {
-        --bg-primary: #000000;
-        --bg-secondary: #000000;
-        --text-primary: #fafafa;
-        --text-secondary: #a1a1aa;
-        --text-tertiary: #a1a1aa;
-        --button-primary-bg: #ffffff;
-        --button-primary-text: #000000;
-        --button-primary-hover: #cccccc;
-        --button-secondary-border: rgba(255, 255, 255, 0.145);
-        --button-secondary-text: #ffffff;
-        --button-secondary-hover: #1a1a1a;
-        --logo-filter: invert(1);
     }
 }
 

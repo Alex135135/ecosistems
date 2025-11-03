@@ -22,12 +22,11 @@ export default function ProductForm() {
     const validateForm = () => {
         const newErrors: Record<string, string> = {}
 
-        if (!formData.title.trim()) newErrors.title = 'Title is required'
-        if (!formData.price || Number(formData.price) <= 0) newErrors.price = 'Valid price is required'
-        if (!formData.description.trim()) newErrors.description = 'Description is required'
-        if (!formData.category.trim()) newErrors.category = 'Category is required'
-        if (!formData.image.trim()) newErrors.image = 'Image URL is required'
-
+        if (!formData.title.trim()) newErrors.title = 'Поле названия товара обязательное'
+        if (!formData.price || Number(formData.price) <= 0) newErrors.price = 'Укажите корректную цену'
+        if (!formData.description.trim()) newErrors.description = 'Поле описание товара обязательное'
+        if (!formData.category.trim()) newErrors.category = 'Поле категория товара обязательное'
+        if (!formData.image.trim()) newErrors.image = 'URL изображения обязателен'
         setErrors(newErrors)
         return Object.keys(newErrors).length === 0
     }
@@ -78,7 +77,7 @@ export default function ProductForm() {
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.formGroup}>
-                <label className={styles.label}>Title *</label>
+                <label className={styles.label}>Титул *</label>
                 <input
                     type="text"
                     name="title"
@@ -90,7 +89,7 @@ export default function ProductForm() {
             </div>
 
             <div className={styles.formGroup}>
-                <label className={styles.label}>Price *</label>
+                <label className={styles.label}>Цена *</label>
                 <input
                     type="number"
                     name="price"
@@ -103,7 +102,7 @@ export default function ProductForm() {
             </div>
 
             <div className={styles.formGroup}>
-                <label className={styles.label}>Description *</label>
+                <label className={styles.label}>Описание *</label>
                 <textarea
                     name="description"
                     value={formData.description}
@@ -115,7 +114,7 @@ export default function ProductForm() {
             </div>
 
             <div className={styles.formGroup}>
-                <label className={styles.label}>Category *</label>
+                <label className={styles.label}>Категория *</label>
                 <input
                     type="text"
                     name="category"
@@ -143,14 +142,14 @@ export default function ProductForm() {
                     type="submit"
                     className={getButtonClassName('submit')}
                 >
-                    Create Product
+                    Создать товар
                 </button>
                 <button
                     type="button"
                     onClick={() => router.back()}
                     className={getButtonClassName('cancel')}
                 >
-                    Cancel
+                    Закрыть
                 </button>
             </div>
         </form>

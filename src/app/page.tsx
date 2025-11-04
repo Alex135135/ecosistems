@@ -1,8 +1,11 @@
-import Image from "next/image";
+'use client'
+
 import Link from "next/link";
 import styles from './page.module.css';
+import { useWithBasePath } from '@/hooks/useBasePath';
 
 export default function Home() {
+  const withBasePath = useWithBasePath()
 
   const phoneContacts = [
     {
@@ -18,6 +21,7 @@ export default function Home() {
       number: "+1 (800) 555-9012",
     }
   ]
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
@@ -31,13 +35,13 @@ export default function Home() {
         </div>
         <div className={styles.actions}>
           <Link
-            href="/products"
+            href={withBasePath("/products")}
             className={styles.primaryButton}
           >
             Просмотр товаров
           </Link>
           <Link
-            href="/create-product"
+            href={withBasePath("/create-product")}
             className={styles.secondaryButton}
           >
             Создать товар
@@ -49,8 +53,7 @@ export default function Home() {
             <h3 className={styles.contactsTitle}>Наши контакты</h3>
             <div className={styles.contactsGrid}>
               {phoneContacts.map((contact, index) => (
-
-                <div className={styles.contactHeader}>
+                <div key={index} className={styles.contactHeader}>
                   <span className={styles.contactLabel}>{contact.label}</span>
                   <a
                     href={`tel:${contact.number.replace(/\D/g, '')}`}
@@ -59,7 +62,6 @@ export default function Home() {
                     {contact.number}
                   </a>
                 </div>
-
               ))}
             </div>
           </div>

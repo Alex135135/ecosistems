@@ -5,11 +5,13 @@ import { useRouter } from 'next/navigation'
 import { useAppDispatch } from '@/lib/store'
 import { addProduct } from '@/lib/store/slices/productsSlice'
 import { Product } from '@/services/api/fakeStoreApi'
+import { useWithBasePath } from '@/hooks/useBasePath'
 import styles from './ProductForm.module.css'
 
 export default function ProductForm() {
     const dispatch = useAppDispatch()
     const router = useRouter()
+    const withBasePath = useWithBasePath()
     const [formData, setFormData] = useState({
         title: '',
         price: '',
@@ -49,7 +51,7 @@ export default function ProductForm() {
         }
 
         dispatch(addProduct(newProduct))
-        router.push('/products')
+        router.push(withBasePath('/products'))
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

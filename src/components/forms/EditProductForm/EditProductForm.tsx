@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useAppDispatch } from '@/lib/store'
 import { editProduct } from '@/lib/store/slices/productsSlice'
 import { Product } from '@/services/api/fakeStoreApi'
+import { useWithBasePath } from '@/hooks/useBasePath'
 import styles from './EditProductForm.module.css'
 
 interface EditProductFormProps {
@@ -15,6 +16,7 @@ interface EditProductFormProps {
 export default function EditProductForm({ product, onCancel }: EditProductFormProps) {
     const dispatch = useAppDispatch()
     const router = useRouter()
+    const withBasePath = useWithBasePath()
     const [formData, setFormData] = useState({
         title: product.title,
         price: product.price.toString(),
@@ -62,7 +64,7 @@ export default function EditProductForm({ product, onCancel }: EditProductFormPr
         }
 
         dispatch(editProduct(updatedProduct))
-        router.push('/products')
+        router.push(withBasePath('/products'))
     }
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

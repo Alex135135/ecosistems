@@ -1,88 +1,81 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
-import { useAppSelector } from '@/lib/store'
-import { Product } from '@/services/api/fakeStoreApi'
+import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { Edit } from 'lucide-react'
 import styles from './productDetailPage.module.css'
+import { productsApi } from '@/services/api/fakeStoreApi'
 
-export default function ProductDetailPage() {
-    const params = useParams()
-    const router = useRouter()
-    const { items, userItems } = useAppSelector(state => state.products)
-    const [product, setProduct] = useState<Product | null>(null)
-
-    useEffect(() => {
-        const allProducts = [...items, ...userItems]
-        const foundProduct = allProducts.find(item => item.id === params.id)
-        if (foundProduct) {
-            setProduct(foundProduct)
-        } else {
-            router.push('/products')
-        }
-    }, [params.id, items, userItems, router])
-
-    const handleEditClick = () => {
-        router.push(`/edit-product/${params.id}`)
+// Серверная функция для генерации статических путей
+export async function generateStaticParams() {
+    try {
+        const products = await productsApi.getProducts()
+        return products.map((product) => ({
+            id: product.id,
+        }))
+    } catch (error) {
+        console.error('Error generating static params:', error)
+        return []
     }
+}
 
-    if (!product) {
-        return <div className={styles.loading}>Loading...</div>
-    }
+// Серверный компонент
+export default async function ProductDetailPage({
+    params
+}: {
+    params: Promise<{ id: string }>
+}) {
+    const { id } = await params
 
-    return (
-        <div className={styles.container}>
-            <div className={styles.header}>
-                <Link
-                    href="/products"
-                    className={styles.backLink}
-                >
-                    ← Вернуться к товарам
-                </Link>
-                <button
-                    onClick={handleEditClick}
-                    className={styles.editButton}
-                >
-                    <Edit size={18} />
-                    Редактировать
-                </button>
-            </div>
+    try {
+        const product = await productsApi.getProductById(id)
 
-            <div className={styles.grid}>
-                <div>
-                    <img
-                        src={product.image}
-                        alt={product.title}
-                        className={styles.image}
-                    />
+        return (
+            <div className={styles.container}>
+                <div className={styles.header}>
+                    <Link
+                        href="/products"
+                        className={styles.backLink}
+                    >
+                        ← Вернуться к товарам
+                    </Link>
+
                 </div>
 
-                <div className={styles.content}>
-                    <h1 className={styles.title}>{product.title}</h1>
-                    <p className={styles.price}>${product.price}</p>
-
+                <div className={styles.grid}>
                     <div>
-                        <span className={styles.category}>
-                            {product.category}
-                        </span>
+                        <img
+                            src={product.image}
+                            alt={product.title}
+                            className={styles.image}
+                        />
                     </div>
 
-                    <p className={styles.description}>{product.description}</p>
+                    <div className={styles.content}>
+                        <h1 className={styles.title}>{product.title}</h1>
+                        <p className={styles.price}>${product.price}</p>
 
-                    <div className={styles.details}>
-                        <div className={styles.rating}>
-                            <span className={styles.star}>★ {product.rating.rate}</span>
-                            <span className={styles.reviews}>({product.rating.count} reviews)</span>
+                        <div>
+                            <span className={styles.category}>
+                                {product.category}
+                            </span>
                         </div>
 
-                        <div className={styles.date}>
-                            Added: {new Date(product.createdAt).toLocaleDateString()}
+                        <p className={styles.description}>{product.description}</p>
+
+                        <div className={styles.details}>
+                            <div className={styles.rating}>
+                                <span className={styles.star}>★ {product.rating.rate}</span>
+                                <span className={styles.reviews}>({product.rating.count} reviews)</span>
+                            </div>
+
+                            <div className={styles.date}>
+                                Added: {new Date(product.createdAt).toLocaleDateString()}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    )
+        )
+    } catch (error) {
+        notFound()
+    }
 }

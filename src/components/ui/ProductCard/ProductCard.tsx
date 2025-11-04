@@ -32,10 +32,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         dispatch(deleteProduct(product.id))
     }
 
-    const handleEditClick = (e: React.MouseEvent) => {
-        e.stopPropagation()
-        router.push(`/edit-product/${product.id}`)
-    }
+
 
     const truncatedDescription = product.description.length > 100
         ? `${product.description.substring(0, 100)}...`
@@ -46,13 +43,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div className={styles.header}>
                 <h3 className={styles.title}>{product.title}</h3>
                 <div className={styles.actions}>
-                    <button
-                        onClick={handleEditClick}
-                        className={styles.editButton}
-                        title="Редактировать товар"
-                    >
-                        <Edit size={18} />
-                    </button>
+
                     <button
                         onClick={handleLikeClick}
                         className={`${styles.likeButton} ${isLiked ? styles.likeButtonLiked : styles.likeButtonNotLiked

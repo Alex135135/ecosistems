@@ -7,7 +7,7 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  // Добавляем для корректной работы с GitHub Pages
+
   env: {
     CUSTOM_BASE_PATH: process.env.NODE_ENV === 'production' ? '/ecosistems' : ''
   }

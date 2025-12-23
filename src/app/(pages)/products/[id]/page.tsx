@@ -4,7 +4,6 @@ import { Edit } from 'lucide-react'
 import styles from './productDetailPage.module.css'
 import { productsApi } from '@/services/api/fakeStoreApi'
 
-// Серверная функция для генерации статических путей
 export async function generateStaticParams() {
     try {
         const products = await productsApi.getProducts()
@@ -17,7 +16,6 @@ export async function generateStaticParams() {
     }
 }
 
-// Серверный компонент
 export default async function ProductDetailPage({
     params
 }: {

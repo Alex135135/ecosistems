@@ -16,8 +16,8 @@
     border: 1px solid var(--border-color, #d1d5db);
     border-radius: 0.375rem;
     background-color: var(--bg-secondary, #f9fafb);
-    color: var(--text-primary, red);
-    font-size: 0.875rem;
+    color: var(--text-primary, black);
+    font-size: 0.900rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease-in-out;

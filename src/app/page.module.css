@@ -61,11 +61,12 @@
     gap: 0.5rem;
     border-radius: 9999px;
     padding: 0 1.25rem;
-    background-color: var(--button-primary-bg, #ee0c0c);
-    color: var(--button-primary-text, #ffffff);
+    background-color: var(--button-primary-bg, white);
+    color: var(--button-primary-text, black);
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
     white-space: nowrap;
+    border: solid 1px black;
 }
 
 .primaryButton:hover {
@@ -80,12 +81,13 @@
     justify-content: center;
     border-radius: 9999px;
     padding: 0 1.25rem;
-    border: 1px solid var(--button-secondary-border, #ee0c0c);
-    color: var(--button-secondary-text, white);
-    background: #ee0c0c;
+    border: 1px solid var(--button-secondary-border, black);
+    color: var(--button-secondary-text, black);
+    background: white;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     white-space: nowrap;
+
 }
 
 .secondaryButton:hover {

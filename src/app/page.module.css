@@ -70,7 +70,8 @@
 }
 
 .primaryButton:hover {
-    background-color: var(--button-primary-hover, #383838);
+    border-color: transparent;
+    background-color: var(--button-primary-hover, #d3d2d2);
 }
 
 .secondaryButton {
@@ -92,7 +93,7 @@
 
 .secondaryButton:hover {
     border-color: transparent;
-    background-color: var(--button-secondary-hover, rgba(0, 0, 0, 0.04));
+    background-color: var(--button-secondary-hover, #d3d2d2);
 }
 
 .footer {

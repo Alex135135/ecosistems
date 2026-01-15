@@ -52,12 +52,12 @@
 }
 
 .likeButtonLiked {
-    color: yellow;
+    color: red;
 }
 
 .likeButtonLiked .heartIcon {
-    fill: yellow;
-    stroke: yellow;
+    fill: red;
+    stroke: red;
 }
 
 .likeButtonNotLiked {

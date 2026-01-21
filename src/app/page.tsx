@@ -10,15 +10,15 @@ export default function Home() {
   const phoneContacts = [
     {
       label: "Доставка",
-      number: "+1 (800) 555-1234",
+      number: "+1 (800) 555-3333",
     },
     {
       label: "Технический отдел",
-      number: "+1 (800) 555-5678",
+      number: "+1 (800) 555-4444",
     },
     {
       label: "Отдел продаж",
-      number: "+1 (800) 555-9012",
+      number: "+1 (800) 555-1234",
     }
   ]
 

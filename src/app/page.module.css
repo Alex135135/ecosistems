@@ -40,7 +40,7 @@
     max-width: 28rem;
     font-size: 1.125rem;
     line-height: 2rem;
-    color: var(--text-secondary, red);
+    color: var(--text-secondary, black);
 }
 
 .actions {

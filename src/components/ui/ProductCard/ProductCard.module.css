@@ -79,7 +79,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ef4444;
+    color: yellow;
 }
 
 .deleteButton:hover {

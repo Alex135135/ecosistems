@@ -25,7 +25,7 @@ export default function ProductsPage() {
 
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Наши товары</h1>
+            <h1 className={styles.title}>Покупай у нас!</h1>
             <Search />
             <Filter />
 

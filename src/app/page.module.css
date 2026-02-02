@@ -16,7 +16,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 8rem 4rem;
-    background-color: var(--bg-secondary, #ffffff);
+    background-color: var(--bg-secondary, #effabe);
 }
 
 .content {
@@ -33,7 +33,7 @@
     font-weight: 600;
     line-height: 2.5rem;
     letter-spacing: -0.025em;
-    color: var(--text-primary, black);
+    color: var(--text-primary, rgb(104, 253, 136));
 }
 
 .description {
@@ -61,12 +61,12 @@
     gap: 0.5rem;
     border-radius: 9999px;
     padding: 0 1.25rem;
-    background-color: var(--button-primary-bg, rgb(60, 230, 26));
-    color: var(--button-primary-text, black);
+    background-color: var(--button-primary-bg, rgb(175, 255, 159));
+    color: var(--button-primary-text, rgb(133, 132, 132));
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
     white-space: nowrap;
-    border: solid 1px black;
+    border: 1px solid var(--button-secondary-border, rgb(133, 132, 132));
 }
 
 .primaryButton:hover {
@@ -82,9 +82,9 @@
     justify-content: center;
     border-radius: 9999px;
     padding: 0 1.25rem;
-    border: 1px solid var(--button-secondary-border, black);
-    color: var(--button-secondary-text, black);
-    background: rgb(33, 240, 61);
+    border: 1px solid var(--button-secondary-border, rgb(133, 132, 132));
+    color: var(--button-secondary-text, rgb(99, 97, 97));
+    background: rgb(175, 255, 159);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     white-space: nowrap;

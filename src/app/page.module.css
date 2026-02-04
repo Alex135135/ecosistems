@@ -33,14 +33,14 @@
     font-weight: 600;
     line-height: 2.5rem;
     letter-spacing: -0.025em;
-    color: var(--text-primary, rgb(104, 253, 136));
+    color: var(--text-primary, rgb(253, 114, 114));
 }
 
 .description {
     max-width: 28rem;
     font-size: 1.125rem;
     line-height: 2rem;
-    color: var(--text-secondary, black);
+    color: var(--text-secondary, rgb(85, 83, 83));
 }
 
 .actions {

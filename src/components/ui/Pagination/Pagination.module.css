@@ -56,9 +56,9 @@
 }
 
 .pageButton.active {
-    background-color: var(--primary-color, #3b82f6);
-    border-color: var(--primary-color, #3b82f6);
-    color: var(--text-on-primary, #ffffff);
+    background-color: var(--primary-color, #e2fa9f);
+    border-color: var(--primary-color, #9ca3af);
+    color: var(--text-on-primary, black);
 }
 
 .pageButton:active {

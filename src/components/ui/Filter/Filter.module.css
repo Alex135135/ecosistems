@@ -19,12 +19,13 @@
 }
 
 .buttonActive {
-    background-color: red;
+    background-color: rgb(253, 175, 175);
     color: white;
 }
 
 .buttonInactive {
-    background-color: #e5e7eb;
+    background-color: #fafa72;
+    border: 1px solid #d1d5db;
     color: #374151;
 }
 

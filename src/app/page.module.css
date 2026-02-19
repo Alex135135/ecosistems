@@ -33,7 +33,7 @@
     font-weight: 600;
     line-height: 2.5rem;
     letter-spacing: -0.025em;
-    color: var(--text-primary, rgb(253, 114, 114));
+    color: var(--text-primary, rgb(150, 224, 65));
 }
 
 .description {

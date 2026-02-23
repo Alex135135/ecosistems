@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 1.5rem;
     min-height: calc(100vh - 4rem);
+    background: #feffd8;
 
 }
 
@@ -15,7 +16,7 @@
 .title {
     font-size: 2.25rem;
     font-weight: 700;
-    color: #1f2937;
+    color: rgb(250, 160, 160);
     margin: 0;
     line-height: 1.2;
     font-family: Arial, sans-serif;

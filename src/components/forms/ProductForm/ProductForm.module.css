@@ -67,6 +67,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.1s;
+
 }
 
 .button:active {
@@ -74,21 +75,25 @@
 }
 
 .submitButton {
-    background-color: var(--primary-color, #3b82f6);
+    background-color: rgb(253, 175, 175);
     color: white;
 }
 
 .submitButton:hover {
-    background-color: var(--primary-color-dark, #2563eb);
-}
-
-.cancelButton {
-    background-color: var(--gray-color, #6b7280);
+    background-color: rgb(253, 175, 175);
     color: white;
 }
 
+.cancelButton {
+    background-color: #fafa72;
+    border: 1px solid #d1d5db;
+    color: #374151;
+}
+
 .cancelButton:hover {
-    background-color: var(--gray-color-dark, #4b5563);
+    background-color: #fafa72;
+    border: 1px solid #d1d5db;
+    color: #374151;
 }
 
 

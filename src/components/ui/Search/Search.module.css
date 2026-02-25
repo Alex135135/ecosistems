@@ -18,7 +18,7 @@
     border-radius: var(--search-radius);
     font-size: 1rem;
     transition: border-color 0.2s, box-shadow 0.2s;
-    background-color: #d1f597;
+    background-color: #e9fdcb;
     color: var(--search-text);
 }
 

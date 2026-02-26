@@ -16,6 +16,7 @@
     font-weight: 500;
     margin-bottom: 0.25rem;
     color: var(--text-primary, #374151);
+    font-family: var(--font-sans, Arial, Helvetica, sans-serif);
 }
 
 .input {
@@ -27,6 +28,7 @@
     transition: border-color 0.2s, box-shadow 0.2s;
     background-color: #e9fdcb;
     color: var(--text-primary, #374151);
+
 }
 
 .input:focus {
@@ -44,6 +46,7 @@
     resize: vertical;
     min-height: 6rem;
     font-family: inherit;
+
 }
 
 .error {

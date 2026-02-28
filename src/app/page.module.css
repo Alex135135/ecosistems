@@ -40,7 +40,7 @@
     max-width: 28rem;
     font-size: 1.125rem;
     line-height: 2rem;
-    color: var(--text-secondary, rgb(85, 83, 83));
+    color: var(--text-secondary, rgb(240, 178, 178));
 }
 
 .actions {
@@ -62,11 +62,11 @@
     border-radius: 9999px;
     padding: 0 1.25rem;
     background-color: var(--button-primary-bg, rgb(175, 255, 159));
-    color: var(--button-primary-text, rgb(133, 132, 132));
+    color: var(--button-primary-text, rgb(250, 169, 169));
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
     white-space: nowrap;
-    border: 1px solid var(--button-secondary-border, rgb(133, 132, 132));
+    border: 1px solid var(--button-secondary-border, rgb(250, 169, 169));
 }
 
 .primaryButton:hover {
@@ -82,8 +82,8 @@
     justify-content: center;
     border-radius: 9999px;
     padding: 0 1.25rem;
-    border: 1px solid var(--button-secondary-border, rgb(133, 132, 132));
-    color: var(--button-secondary-text, rgb(99, 97, 97));
+    border: 1px solid var(--button-secondary-border, rgb(240, 178, 178));
+    color: var(--button-secondary-text, rgb(240, 178, 178));
     background: rgb(175, 255, 159);
     text-decoration: none;
     transition: all 0.2s ease-in-out;

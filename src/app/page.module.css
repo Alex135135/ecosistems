@@ -149,13 +149,13 @@
 .contactLabel {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--text-secondary, #6b7280);
+    color: var(--text-secondary, rgb(250, 160, 160));
 }
 
 .contactNumber {
     font-size: 1rem;
     font-weight: 600;
-    color: var(--primary-color, #6b7280);
+    color: var(--primary-color, rgb(250, 160, 160));
     text-decoration: none;
     transition: color 0.2s ease-in-out;
 }
@@ -167,19 +167,19 @@
 
 .contactHours {
     font-size: 0.75rem;
-    color: var(--text-tertiary, #9ca3af);
+    color: var(--text-tertiary, rgb(250, 160, 160));
     font-style: italic;
 }
 
 .footerBottom {
     text-align: center;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color, #e5e7eb);
+    border-top: 1px solid var(--border-color, rgb(250, 160, 160));
 }
 
 .footerText {
     font-size: 0.875rem;
-    color: var(--text-tertiary, #6b7280);
+    color: var(--text-tertiary, rgb(250, 160, 160));
     margin: 0;
 }
 

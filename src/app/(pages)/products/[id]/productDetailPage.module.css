@@ -39,13 +39,13 @@
 .backLink {
     display: inline-flex;
     align-items: center;
-    color: var(--primary-color);
+    color: #f7a5a5;
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .backLink:hover {
-    color: var(--primary-color-dark);
+    color: #ff9f9f;
 }
 
 .editButton {

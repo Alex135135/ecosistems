@@ -97,7 +97,7 @@
 
 .category {
     display: inline-block;
-    background-color: var(--bg-secondary);
+    background-color: rgb(255, 205, 205);
     color: var(--text-secondary);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: 9999px;

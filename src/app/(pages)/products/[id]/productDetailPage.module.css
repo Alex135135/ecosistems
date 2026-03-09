@@ -25,6 +25,7 @@
     --image-height: 24rem;
     --image-height-mobile: 20rem;
     background: #e9fdcb;
+    border: 1px solid green;
 }
 
 .header {

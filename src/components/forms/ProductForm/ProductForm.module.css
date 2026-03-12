@@ -50,7 +50,7 @@
 }
 
 .error {
-    color: var(--error-color, #ef4444);
+    color: var(--error-color, #f89999);
     font-size: 0.875rem;
     margin-top: 0.25rem;
 }

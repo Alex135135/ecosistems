@@ -26,7 +26,7 @@
 .buttonInactive {
     background-color: #fafa72;
     border: 1px solid #d1d5db;
-    color: #374151;
+    color: rgb(253, 175, 175);
 }
 
 .buttonInactive:hover {

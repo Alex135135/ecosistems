@@ -16,7 +16,7 @@
     border: 1px solid var(--border-color, #d1d5db);
     border-radius: 0.375rem;
     background-color: rgb(219, 248, 234);
-    color: var(--text-primary, black);
+    color: var(--text-primary, rgb(243, 196, 196));
     font-size: 0.900rem;
     font-weight: 500;
     cursor: pointer;

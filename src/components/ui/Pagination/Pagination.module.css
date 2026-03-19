@@ -48,6 +48,7 @@
     cursor: pointer;
     min-width: 2.5rem;
     transition: all 0.2s ease-in-out;
+    color: rgb(243, 196, 196)
 }
 
 .pageButton:hover {
@@ -58,11 +59,12 @@
 .pageButton.active {
     background-color: var(--primary-color, #e2fa9f);
     border-color: var(--primary-color, #9ca3af);
-    color: var(--text-on-primary, black);
+    color: rgb(243, 196, 196)
 }
 
 .pageButton:active {
     transform: translateY(1px);
+
 }
 
 

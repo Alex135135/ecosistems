@@ -1,7 +1,7 @@
 .container {
     margin-bottom: var(--search-spacing);
     --search-bg: white;
-    --search-border: #d1d5db;
+    --search-border: #f7ae85;
     --search-text: #374151;
     --search-placeholder: #fdb89d;
     --search-focus-border: #3b82f6;

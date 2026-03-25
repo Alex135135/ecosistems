@@ -39,7 +39,7 @@
 
 .pageButton {
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--border-color, #d1d5db);
+    border: 1px solid var(--border-color, #fc9474);
     border-radius: 0.375rem;
     background-color: var(--bg-primary, #ffffff);
     color: var(--text-primary, #374151);
@@ -53,12 +53,12 @@
 
 .pageButton:hover {
     background-color: var(--bg-hover, #f3f4f6);
-    border-color: var(--border-hover, #9ca3af);
+    border-color: var(--border-hover, #fcb7a2);
 }
 
 .pageButton.active {
     background-color: var(--primary-color, #e2fa9f);
-    border-color: var(--primary-color, #9ca3af);
+    border-color: var(--primary-color, #fcaa9b);
     color: rgb(243, 196, 196)
 }
 

@@ -13,7 +13,7 @@
 
 .navButton {
     padding: 0.5rem 1rem;
-    border: 1px solid var(--border-color, #d1d5db);
+    border: 1px solid var(--border-color, #fdab75);
     border-radius: 0.375rem;
     background-color: rgb(219, 248, 234);
     color: var(--text-primary, rgb(243, 196, 196));
@@ -25,7 +25,7 @@
 
 .navButton:hover:not(:disabled) {
     background-color: var(--bg-hover, #f3f4f6);
-    border-color: var(--border-hover, #9ca3af);
+    border-color: var(--border-hover, #f39773);
 }
 
 .navButton:disabled {

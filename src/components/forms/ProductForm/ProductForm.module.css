@@ -26,15 +26,15 @@
     border-radius: 0.375rem;
     font-size: 1rem;
     transition: border-color 0.2s, box-shadow 0.2s;
-    background-color: #e9fdcb;
-    color: var(--text-primary, #374151);
+    background-color: #e0fab8;
+    color: var(--text-primary, #0b1104);
 
 }
 
 .input:focus {
     outline: none;
-    border-color: var(--primary-color, #3b82f6);
-    box-shadow: 0 0 0 3px var(--primary-color-light, rgba(59, 130, 246, 0.1));
+    border-color: var(--primary-color, #faa267);
+    box-shadow: 0 0 0 3px var(--primary-color-light, rgba(134, 246, 59, 0.1));
 }
 
 .inputError {

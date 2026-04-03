@@ -44,12 +44,13 @@
 }
 
 .actions {
-    display: flex;
+    display: grid;
     flex-direction: row;
     gap: 1rem;
     font-size: 1rem;
     font-weight: 500;
     justify-content: center;
+    height: 100px
 }
 
 .primaryButton {
@@ -94,6 +95,22 @@
 .secondaryButton:hover {
     border-color: transparent;
     background-color: var(--button-secondary-hover, #fdeb98);
+}
+
+.tertiaryButton {
+    display: flex;
+    height: 3rem;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    padding: 0 1.25rem;
+    border: 1px solid var(--button-secondary-border, rgb(240, 178, 178));
+    color: var(--button-secondary-text, rgb(240, 178, 178));
+    background: rgb(175, 255, 159);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
 }
 
 .footer {

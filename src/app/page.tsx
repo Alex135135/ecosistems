@@ -46,6 +46,12 @@ export default function Home() {
           >
             Создать товар
           </Link>
+          <Link
+            href={withBasePath("/")}
+            className={styles.tertiaryButton}
+          >
+            Оставить отзыв
+          </Link>
         </div>
 
         <footer className={styles.footer}>

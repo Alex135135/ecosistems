@@ -67,6 +67,8 @@
 .likeButtonNotLiked .heartIcon {
     fill: none;
     stroke: #9ca3af;
+    background: rgb(219, 248, 234);
+    border: none
 }
 
 .deleteButton {
@@ -83,7 +85,7 @@
 }
 
 .deleteButton:hover {
-    background-color: #fef2f2;
+    background-color: rgb(219, 248, 234);
 }
 
 .image {

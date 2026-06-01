@@ -113,13 +113,13 @@
 .price {
     font-weight: 700;
     font-size: 1.125rem;
-    color: #960505;
+    color: #fa0a0a;
 }
 
 .category {
     font-size: 0.875rem;
     color: #6b7280;
-    background-color: #f3f4f6;
+    background-color: #78a0ee;
     padding: 0.25rem 0.5rem;
     border-radius: 9999px;
 }

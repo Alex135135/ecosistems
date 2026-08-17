@@ -15,7 +15,7 @@
     font-size: 0.875rem;
     font-weight: 500;
     margin-bottom: 0.25rem;
-    color: var(--text-primary, #374151);
+    color: var(--text-primary, #9dbdf0);
 }
 
 .input {
@@ -26,7 +26,7 @@
     font-size: 1rem;
     transition: border-color 0.2s, box-shadow 0.2s;
     background-color: var(--input-bg, white);
-    color: var(--text-primary, #374151);
+    color: var(--text-primary, #9cbcf0);
 }
 
 .input:focus {
@@ -79,7 +79,7 @@
 }
 
 .submitButton:hover {
-    background-color: var(--primary-color-dark, #2563eb);
+    background-color: var(--primary-color-dark, #8cadf5);
 }
 
 .cancelButton {

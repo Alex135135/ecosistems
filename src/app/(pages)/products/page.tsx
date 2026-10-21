@@ -46,7 +46,7 @@ export default function ProductsPage() {
                     )}
                 </>
             )}
-            <h1 className={styles.title}>С нами удобно и выгодно!</h1>
+            <h1 className={styles.title}>У нас большой ассортимент!</h1>
         </div>
     )
 }

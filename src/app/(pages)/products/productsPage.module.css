@@ -3,7 +3,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 1.5rem;
-    background: #feffd8;
+    background-color: #feffd8;
 }
 
 .title {
@@ -13,7 +13,7 @@
     color: rgb(250, 160, 160);
     text-align: center;
     font-family: 'Roboto', 'Open Sans', sans-serif;
-    background: #feffd8;
+
 }
 
 .productsGrid {
@@ -23,25 +23,26 @@
     margin-top: 1.5rem;
 }
 
-.loading {
+.loading,
+.error,
+.empty {
     text-align: center;
     padding: 2rem;
     font-size: 1.125rem;
+}
+
+.loading {
     color: #f1a693;
 }
 
 .error {
-    text-align: center;
-    padding: 2rem;
-    font-size: 1.125rem;
     color: #ef4444;
 }
 
 .empty {
-    text-align: center;
-    padding: 3rem;
     color: #fc947a;
-    font-size: 1.125rem;
+    padding: 3rem;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -52,6 +53,11 @@
     .loading,
     .empty {
         color: #d1d5db;
+    }
+
+    .error {
+        color: #fca5a5;
+
     }
 }
 

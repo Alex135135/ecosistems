@@ -37,12 +37,24 @@
     gap: var(--spacing-md);
 }
 
+/* Адаптив для шапки на мобильных: вертикальное выравнивание и перенос кнопки */
+@media (max-width: 640px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+        /* важно: добавляем gap вместо margin */
+    }
+}
+
 .backLink {
     display: inline-flex;
     align-items: center;
     color: #f7a5a5;
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
+    line-height: 1;
+    /* чтобы hover не «прыгал» */
 }
 
 .backLink:hover {
@@ -60,12 +72,20 @@
     border-radius: var(--border-radius);
     font-size: var(--font-size-sm);
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s ease, transform 0.1s ease;
     text-decoration: none;
+    white-space: nowrap;
+    /* кнопка не будет ломаться на две строки */
 }
 
 .editButton:hover {
     background-color: var(--primary-color-dark);
+    transform: translateY(-1px);
+    /* лёгкий эффект при наведении */
+}
+
+.editButton:active {
+    transform: translateY(0);
 }
 
 .grid {
@@ -74,41 +94,71 @@
     gap: var(--spacing-xl);
 }
 
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        /* можно добавить: align-items: start; если нужно выравнивание по верху */
+    }
+}
+
 .image {
     width: 100%;
     height: var(--image-height);
     object-fit: contain;
     border-radius: var(--border-radius);
+    display: block;
+    /* убирает лишние отступы у img */
+}
+
+@media (max-width: 640px) {
+    .image {
+        height: var(--image-height-mobile);
+    }
 }
 
 .title {
     font-size: var(--font-size-3xl);
     font-weight: 700;
-    margin-bottom: var(--spacing-md);
+    margin: 0 0 var(--spacing-md) 0;
     color: var(--text-primary);
     line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+    .title {
+        font-size: var(--font-size-2xl);
+    }
 }
 
 .price {
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: var(--success-color);
-    margin-bottom: var(--spacing-md);
+    margin: 0 0 var(--spacing-md) 0;
+    line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+    .price {
+        font-size: var(--font-size-xl);
+    }
 }
 
 .category {
     display: inline-block;
-    background-color: rgb(255, 205, 205);
+    background-color: rgba(255, 205, 205, 0.7);
+    /* полупрозрачный фон — аккуратнее смотрится */
     color: var(--text-secondary);
     padding: var(--spacing-xs) var(--spacing-sm);
     border-radius: 9999px;
     font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-md);
+    margin: 0 0 var(--spacing-md) 0;
+    white-space: nowrap;
 }
 
 .description {
     color: var(--text-muted);
-    margin-bottom: var(--spacing-lg);
+    margin: 0 0 var(--spacing-lg) 0;
     line-height: 1.625;
 }
 
@@ -121,18 +171,15 @@
 .rating {
     display: flex;
     align-items: center;
+    gap: var(--spacing-xs);
+    /* лучше чем margin-right у .star */
 }
 
 .star {
     color: var(--warning-color);
-    margin-right: var(--spacing-xs);
 }
 
-.reviews {
-    color: var(--text-muted);
-    font-size: var(--font-size-sm);
-}
-
+.reviews,
 .date {
     color: var(--text-muted);
     font-size: var(--font-size-sm);
@@ -144,37 +191,4 @@
     margin-right: auto;
     padding: var(--spacing-lg);
     text-align: center;
-}
-
-@media (min-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 640px) {
-    .container {
-        padding: var(--spacing-md);
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .editButton {
-        align-self: flex-start;
-    }
-
-    .title {
-        font-size: var(--font-size-2xl);
-    }
-
-    .price {
-        font-size: var(--font-size-xl);
-    }
-
-    .image {
-        height: var(--image-height-mobile);
-    }
 }
